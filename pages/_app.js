@@ -1,6 +1,6 @@
 import "../styles/globals.css";
 import "@rainbow-me/rainbowkit/styles.css";
-
+import Head from 'next/head'
 import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import { configureChains, createClient, WagmiConfig } from "wagmi";
 import {
@@ -47,6 +47,10 @@ function MyApp({ Component, pageProps }) {
 				initialChain={process.env.NEXT_PUBLIC_DEFAULT_CHAIN}
 				chains={chains}
 			>
+				<Head>
+					<title>Stargate Faucet</title>
+       				<meta property="og:title" content="Stargate Faucet" key="title" />
+				</Head>
 				<MainLayout>
 					<Component {...pageProps} />
 				</MainLayout>
