@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 import "@rainbow-me/rainbowkit/styles.css";
 import Head from 'next/head'
+import Script from "next/script";
 import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import { configureChains, createClient, WagmiConfig } from "wagmi";
 import {
@@ -51,6 +52,16 @@ function MyApp({ Component, pageProps }) {
 					<title>Stargate Faucet</title>
        				<meta property="og:title" content="Stargate Faucet" key="title" />
 				</Head>
+				<Script async src="https://www.googletagmanager.com/gtag/js?id=G-CM7EWBMMQB"></Script>
+				<Script>
+					{`
+						window.dataLayer = window.dataLayer || [];
+						function gtag(){dataLayer.push(arguments);}
+						gtag('js', new Date());
+
+						gtag('config', 'G-CM7EWBMMQB');
+					`}
+				</Script>
 				<MainLayout>
 					<Component {...pageProps} />
 				</MainLayout>
